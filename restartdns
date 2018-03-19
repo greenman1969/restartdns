@@ -1,0 +1,26 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          restartdns
+# Required-Start:    pihole-FTL
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: restartdns
+# Description:       restartdns
+### END INIT INFO
+USER="root"
+
+case "$1" in
+    start)
+        sudo -H -u $USER pihole restartdns
+        ;;
+    stop)
+        ;;
+    status)
+        ;;
+       *) echo "Usage: /etc/init.d/restartdns {start|stop|status}"
+        exit 1
+        ;;
+	esac
+
+exit 0
